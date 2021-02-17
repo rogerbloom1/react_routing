@@ -1,19 +1,28 @@
-import React from "react";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import "./App.css";
+import Home from "./views/Home";
+import Navbar from "./components/Navbar"
 
 const App = () => {
+  fetch("https://ghibliapi.herokuapp.com/films", {mode: "cors"})
+  .then((response) => response.json())
+  .then((result) => console.log(result))
   return (
-    <main
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        flexDirection: "column",
-        textAlign: "center",
-      }}
-    >
-      <h1>React Routing</h1>
-    </main>
+    <Router>
+      {<Navbar/> }
+      <Switch>
+        <Route path="/films">
+          {/* <Films title="Films"/> */}
+        </Route><Route path="/people">
+          {/* <People title="People"/> */}
+        </Route>
+        <Route exact path="/">
+          <Home title="Welcome!"/> 
+        </Route>
+      </Switch>
+    </Router>
   );
+  
 };
 
 export default App;
