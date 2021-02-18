@@ -17,6 +17,12 @@ const Navbar = () => {
             >
                 Films
             </NavLink>
+            <NavLink to="/people" 
+            activeClassName="border-bottom border-light bg-info nav-link text-light"
+            className="nav-link text-light"
+            >
+                People
+            </NavLink>
         </nav>
     )
 }

@@ -1,5 +1,5 @@
 import {useState, useEffect} from "react";
-import {FilmCard} from "../components/FilmCard";
+import FilmCard from "../components/FilmCard";
 const Films = () => {
     const [filmList, setFilmList] = useState([]);
 
@@ -20,10 +20,17 @@ const Films = () => {
         <main className="container">
             <h1>Films</h1>
             <hr/>
-            <div className="card-columns">
-                {filmList.map((film) => {
-                    return <FilmCard key={film.id} title={film.title} release_date={film.release_date} rt_score={film.rt_score} description={film.description}/>;
-                })}
+            <div className="row">
+                <div className="card-columns">
+                    {filmList.map((film) => {
+                        return <FilmCard 
+                        key={film.id} 
+                        title={film.title} 
+                        release_date={film.release_date} 
+                        rt_score={film.rt_score} 
+                        description={film.description}/>;
+                    })}
+                </div>
             </div>
         </main>
     );
