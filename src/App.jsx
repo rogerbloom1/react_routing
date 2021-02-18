@@ -1,6 +1,7 @@
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import "./App.css";
 import Home from "./views/Home";
+import Films from "./views/Films"
 import Navbar from "./components/Navbar"
 
 const App = () => {
@@ -9,15 +10,16 @@ const App = () => {
   .then((result) => console.log(result))
   return (
     <Router>
-      {<Navbar/> }
+      <Navbar/> 
       <Switch>
         <Route path="/films">
-          {/* <Films title="Films"/> */}
-        </Route><Route path="/people">
-          {/* <People title="People"/> */}
+          <Films />
         </Route>
+        {/*<Route path="/people">
+          <People />
+          </Route>*/}
         <Route exact path="/">
-          <Home title="Welcome!"/> 
+          <Home /> 
         </Route>
       </Switch>
     </Router>
